@@ -15,19 +15,29 @@
 <body>
 	<div class = "container-fluid">
 		<div class = "row main-view">
-			<div class = "col-lg-2 sidebar">
-			<h1 id = "sidebar-header">Neighbourhood Map</h1>
-			<input type="text" value="submit">
+			<div class = "col-md-2 sidebar">
+				<h1 id = "sidebar-header">Neighbourhood Map</h1>
+				<input class = "form-control" type="text" placeholder="Search for a place here!" name="filter">
+				<nav>
+					<ul class = "list-group" data-bind="foreach: locations">
+						<li class="list-group-item" data-bind="text: name"></li>
+					</ul>
+				</nav>
 			</div>
-			<div class="col-lg-10 map-canvas">
+			<div class="col-md-10 map-canvas">
 				<div id = 'map'>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/gMaps.js"></script>
+	
 	<!-- Google Maps API -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwFKpLaXeIOPubOs53kMq3-ZQnj5GchYg&callback=initMap" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwFKpLaXeIOPubOs53kMq3-ZQnj5GchYg&libraries=places&callback=initMap" async defer></script>
+	<script src="js/gMaps.js"></script>
+	<!-- Knockout.js -->
+	<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+
 </body>
 </html>
 

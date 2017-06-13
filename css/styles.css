@@ -21,7 +21,7 @@ html, body {
 	width: 100%;
 }
 
-.col-lg-10 {
+.col-md-10 {
 	padding: 0 !important;
 }
 
@@ -31,3 +31,26 @@ html, body {
 	color: #FFFFFF;
 }
 
+.form-control {
+	font-size: 10px !important;
+	background-color: grey !important;
+	color: white !important;
+	border: 0 !important;
+	border-radius: 10px !important;
+	margin-bottom: 15px;
+}
+
+::-webkit-input-placeholder {
+	text-align: center;
+	color: white !important;
+}
+
+::-moz-placeholder {
+	color: white !important;
+	text-align: center;
+}
+
+:-ms-input-placeholder {
+	color: white !important;
+	text-align: center;
+}
