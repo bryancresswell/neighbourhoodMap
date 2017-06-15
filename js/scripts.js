@@ -1,8 +1,5 @@
 // KNOCKOUT
-function neighbourhoodMapViewModel() {
-	var self = this;
-	// Non editable model data
-	self.locations = [
+stationList = [
 		{name: "Tiong Bahru Station (EWL)"},
 		{name: "Redhill Station (EWL)"},
 		{name: "Queenstown Station (EWL)"},
@@ -34,6 +31,47 @@ function neighbourhoodMapViewModel() {
 		{name: "Pasir Ris Station (EWL)"},
 		{name: "Changi Airport Station (EWL)"}
 	];
+
+// Knockout Model (Station List)
+var Stations = function(data) {
+	this.name = ko.observable(data.name);
+};
+
+// Knockout ViewModel
+var neighbourhoodMapViewModel = function() {
+	var self = this;
+	this.locationList = ko.observableArray([]);
+	stationList.forEach(function(stationItem) {
+		self.locationList.push(new Stations(stationItem));
+	});
+	this.currentLocation = ko.observable(this.locationList()[0]);
+	this.showMarkerInfo = function(name) {
+		google.maps.event.trigger(markersArray.name, 'click');
+	};
+	// Filter Function
+	this.filter = ko.observable("");
+	this.filterSearch = ko.computed(function() {
+		var filter = self.filter().toLowerCase();
+		if (!filter) {
+			return self.locationList();
+		} else {
+			return ko.utils.arrayFilter(self.locationList(), function(item) {
+				var result = stringStartsWith(item.name().toLowerCase(), self.filter().toLowerCase());
+				console.log(item.name().index);
+				return result;
+			});
+		}
+	});
 }
 
+// Helper function to replace ko.utils.stringStartsWith
+var stringStartsWith = function (string, startsWith) {
+	string = string || "";
+	if (startsWith.length > string.length) {
+		return false;
+	}
+	return string.substring(0, startsWith.length) === startsWith;
+};
+
 ko.applyBindings(new neighbourhoodMapViewModel());
+

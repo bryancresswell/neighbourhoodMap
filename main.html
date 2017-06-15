@@ -17,10 +17,10 @@
 		<div class = "row main-view">
 			<div class = "col-md-2 sidebar">
 				<h1 id = "sidebar-header">Neighbourhood Map</h1>
-				<input class = "form-control" type="text" placeholder="Search for a place here!" name="filter">
+				<input id = "myInput" class = "form-control" type="text" placeholder="Search for a place here!" name="filter" data-bind="textInput: filter, valueUpdate:'keyup'">
 				<nav>
-					<ul class = "list-group" data-bind="foreach: locations">
-						<li class="list-group-item" data-bind="text: name"></li>
+					<ul id="sidebar-list" class = "list-group" data-bind="foreach: filterSearch">
+						<li class="list-group-item" data-bind="text: name, click: $parent.showMarkerInfo.bind($(this).text())"></li>
 					</ul>
 				</nav>
 			</div>

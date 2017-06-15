@@ -1,6 +1,6 @@
 var map;
 var marker, i;
-
+var markersArray = [];
 var currentLocation = {lat: 1.28631490, lng: 103.827403};
 var stylesArray =[
 	{
@@ -164,15 +164,16 @@ function initMap() {
 		marker = new google.maps.Marker({
 			position: markers[name],
 			map: map,
-			icon: image,
 			animation: google.maps.Animation.DROP
 		});
+		markersArray.push({name:marker});
 		google.maps.event.addListener(marker, 'click', (function(marker, name) {
 			return function() {
 				if (currentMarker) currentMarker.setAnimation(null);
 				currentMarker = marker;
 				console.log(currentMarker);
 				marker.setAnimation(google.maps.Animation.BOUNCE);
+				map.setCenter(marker.getPosition());
 				infoWindow.setContent(name);
 				infoWindow.open(map,marker);	
 			}
@@ -218,4 +219,5 @@ $(window).resize(function() {
 	var h = $(window).height(),
 	offsetTop = 0;
 	$('#map').css('height', (h-offsetTop));
+	$('.sidebar').css('height', (h-offsetTop));
 }).resize();
