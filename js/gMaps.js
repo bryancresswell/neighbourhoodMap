@@ -112,36 +112,36 @@ var stylesArray =[
 	}
 ];
 var markers = [
-	{name:"Tiong Bahru Station (EWL)", position: {lat:1.28498, lng:103.82283}},
-	{name:"Redhill Station (EWL)", position: {lat:1.289521, lng:103.816951}},
-	{name:"Queenstown Station (EWL)", position: {lat:1.295428, lng:103.805623}},
-	{name:"Outram Park Station (EWL)", position: {lat:1.281395, lng:103.838932}},
-	{name:"Tanjong Pagar Station (EWL)", position: {lat:1.276407, lng:103.846700}},
-	{name:"Commonwealth Station (EWL)", position: {lat:1.302320, lng: 103.798039}},
-	{name:"Buona Vista Station (EWL)", position: {lat:1.307382, lng: 103.790325}},
-	{name:"Dover Station (EWL)", position: {lat:1.311278, lng:103.778552}},
-	{name:"Clementi Station (EWL)", position: {lat:1.315325, lng:103.764659}},
-	{name:"Jurong East Station (EWL)", position: {lat:1.333133, lng:103.742213}},
-	{name:"Chinese Garden Station (EWL)", position: {lat:1.342491, lng:103.732606}},
-	{name:"Lakeside Station (EWL)", position: {lat:1.344155,lng:103.720819}},
-	{name:"Boon Lay Station (EWL)", position: {lat:1.338659, lng:103.705894}},
-	{name:"Pioneer Station (EWL)", position: {lat: 1.337461, lng:103.696780}},
-	{name:"Joo Koon Station (EWL)", position: {lat: 1.327817, lng: 103.678311}},
-	{name:"Raffles Place Station (EWL)", position: {lat:1.283879, lng:103.851012}},
-	{name:"City Hall Station (EWL)", position: {lat:1.293241, lng:103.852166}},
-	{name:"Bugis Station (EWL)", position: {lat:1.300910, lng:103.856685}},
-	{name:"Lavender Station (EWL)", position: {lat:1.307137, lng:103.863122}},
-	{name:"Aljunied Station (EWL)", position: {lat:1.316419, lng:103.882856}},
-	{name:"Paya Lebar Station (EWL)", position: {lat:1.317792, lng:103.893756}},
-	{name:"Eunos Station (EWL)", position: {lat: 1.319766, lng:103.902597}},
-	{name:"Kembangan Station (EWL)", position: {lat:1.321053,lng:103.912811}},
-	{name:"Bedok Station (EWL)", position: {lat:1.324056, lng:103.930195}},
-	{name:"Tanah Merah Station (EWL)", position: {lat: 1.327402, lng:103.946374}},
-	{name:"Expo Station (EWL)", position: {lat:1.334953, lng:103.961823}},
-	{name:"Simei Station (EWL)", position: {lat: 1.343234, lng:103.953412}},
-	{name:"Tampines Station (EWL)", position: {lat: 1.353071, lng: 103.945246}},
-	{name:"Pasir Ris Station (EWL)", position: {lat: 1.373077, lng:103.949436}},
-	{name:"Changi Airport Station (EWL)", position: {lat:1.357558, lng:103.988891}}
+	{name:"Tiong Bahru MRT Station", position: {lat:1.28498, lng:103.82283}},
+	{name:"Redhill MRT Station", position: {lat:1.289521, lng:103.816951}},
+	{name:"Queenstown MRT Station", position: {lat:1.295428, lng:103.805623}},
+	{name:"Outram Park MRT Station", position: {lat:1.281395, lng:103.838932}},
+	{name:"Tanjong Pagar MRT Station", position: {lat:1.276407, lng:103.846700}},
+	{name:"Commonwealth MRT Station", position: {lat:1.302320, lng: 103.798039}},
+	{name:"Buona Vista MRT Station", position: {lat:1.307382, lng: 103.790325}},
+	{name:"Dover MRT Station", position: {lat:1.311278, lng:103.778552}},
+	{name:"Clementi MRT Station", position: {lat:1.315325, lng:103.764659}},
+	{name:"Jurong East MRT Station", position: {lat:1.333133, lng:103.742213}},
+	{name:"Chinese Garden MRT Station", position: {lat:1.342491, lng:103.732606}},
+	{name:"Lakeside MRT Station", position: {lat:1.344155,lng:103.720819}},
+	{name:"Boon Lay MRT Station", position: {lat:1.338659, lng:103.705894}},
+	{name:"Pioneer MRT Station", position: {lat: 1.337461, lng:103.696780}},
+	{name:"Joo Koon MRT Station", position: {lat: 1.327817, lng: 103.678311}},
+	{name:"Raffles Place MRT Station", position: {lat:1.283879, lng:103.851012}},
+	{name:"City Hall MRT Station", position: {lat:1.293241, lng:103.852166}},
+	{name:"Bugis MRT Station", position: {lat:1.300910, lng:103.856685}},
+	{name:"Lavender MRT Station", position: {lat:1.307137, lng:103.863122}},
+	{name:"Aljunied MRT Station", position: {lat:1.316419, lng:103.882856}},
+	{name:"Paya Lebar MRT Station", position: {lat:1.317792, lng:103.893756}},
+	{name:"Eunos MRT Station", position: {lat: 1.319766, lng:103.902597}},
+	{name:"Kembangan MRT Station", position: {lat:1.321053,lng:103.912811}},
+	{name:"Bedok MRT Station", position: {lat:1.324056, lng:103.930195}},
+	{name:"Tanah Merah MRT Station", position: {lat: 1.327402, lng:103.946374}},
+	{name:"Expo MRT Station", position: {lat:1.334953, lng:103.961823}},
+	{name:"Simei MRT Station", position: {lat: 1.343234, lng:103.953412}},
+	{name:"Tampines MRT Station", position: {lat: 1.353071, lng: 103.945246}},
+	{name:"Pasir Ris MRT Station", position: {lat: 1.373077, lng:103.949436}},
+	{name:"Changi Airport MRT Station", position: {lat:1.357558, lng:103.988891}}
 ];
 function initMap() {
 	var styledMapType = new google.maps.StyledMapType(stylesArray, {name: "Dark Mode"});
@@ -168,14 +168,41 @@ function initMap() {
 			animation: google.maps.Animation.DROP
 		});
 		var name = markers[i].name;
+		var position = markers[i].position;
 		google.maps.event.addListener(marker, 'click', (function(marker, name) {
 			return function() {
 				if (currentMarker) currentMarker.setAnimation(null);
 				currentMarker = marker;
 				marker.setAnimation(google.maps.Animation.BOUNCE);
 				map.setCenter(marker.getPosition());
-				infoWindow.setContent(name);
-				infoWindow.open(map,marker);	
+				console.log(name);
+				var contentString = "<div id = 'main'><div id = 'location-name'><h1 id='header'>" + name + "</h1></div><div id = 'wiki-link'></div></div>"
+				var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' +  name + '&format=json&callback=wikiCallback';
+				var wikiRequestTimeout = setTimeout(function() {
+					$("#wiki-link").text("Couldn't load the resources from Wikipedia!");
+				}, 4000);
+				$.ajax({
+					url: wikiUrl,
+					dataType: "jsonp",
+					success: function (response) {
+						var articleList = response[1];
+						var articleStr = articleList[0];
+						var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+						$("#wiki-link").append("<a target = '_blank' href='" + url + "'>" + articleStr + "</a>");
+						clearTimeout(wikiRequestTimeout);
+					}
+				});
+				var flickrApiKey = "5a7a63964a36764c6209e30b1e15846d";
+				var flickrUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + flickrApiKey + '&lat=' + position.lat + '&lon=' + position.lng + '&accuracy=16&per_page=2&page=1&format=json';
+				$.ajax({
+					url: flickrUrl,
+					dataType: 'json',
+					success: function (response) {
+						console.log(2323232);
+					}
+				})
+				infoWindow.setContent(contentString);
+				infoWindow.open(map,marker);
 			}
 		})(marker,name));
 
@@ -197,15 +224,10 @@ function toggleBounce() {
 }
 	
 
-// // AJAX for MRT API
-// $.ajax({
-// 	url: 'https://mrtapi.com/api/v1.1/getTrainArrival&TIB',
-// 	dataType: 'json',
-// 	data: 'stnCode:TIB'
-// 	success: function(data) {
-// 		alert("lol");
-// 	}
-// });
+// AJAX for Wikipedia
+
+	
+// AJAX for Flickr
 
 
 

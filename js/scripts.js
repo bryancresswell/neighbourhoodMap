@@ -1,35 +1,35 @@
 // Knockout
 var stationList = [
-		{name: "Tiong Bahru Station (EWL)", marker: markersArray['Tiong Bahru Station (EWL)']},
-		{name: "Redhill Station (EWL)", marker: markersArray['Redhill Station (EWL)']},
-		{name: "Queenstown Station (EWL)", marker: markersArray['Queenstown Station (EWL)']},
-		{name: "Outram Park Station (EWL)", marker: markersArray['Outram Park Station (EWL)']},
-		{name: "Tanjong Pagar Station (EWL)", marker: markersArray['Tanjong Pagar Station (EWL)']},
-		{name: "Commonwealth Station (EWL)", marker: markersArray['Commonwealth Station (EWL)']},
-		{name: "Buona Vista Station (EWL)", marker: markersArray['Buona Vista Station (EWL)']},
-		{name: "Dover Station (EWL)", marker: markersArray['Dover Station (EWL)']},
-		{name: "Clementi Station (EWL)", marker: markersArray['Clementi Station (EWL)']},
-		{name: "Jurong East Station (EWL)", marker: markersArray['Jurong East Station (EWL)']},
-		{name: "Chinese Garden Station (EWL)", marker: markersArray['Chinese Garden Station (EWL)']},
-		{name: "Lakeside Station (EWL)", marker: markersArray['Lakeside Station (EWL)']},
-		{name: "Boon Lay Station (EWL)", marker: markersArray['Boon Lay Station (EWL)']},
-		{name: "Pioneer Station (EWL)", marker: markersArray['Pioneer Station (EWL)']},
-		{name: "Joo Koon Station (EWL)", marker: markersArray['Joo Koon Station (EWL)']},
-		{name: "Raffles Place Station (EWL)", marker: markersArray['Raffles Place Station (EWL)']},
-		{name: "City Hall Station (EWL)", marker: markersArray['City Hall Station (EWL)']},
-		{name: "Bugis Station (EWL)", marker: markersArray['Bugis Station (EWL)']},
-		{name: "Lavender Station (EWL)", marker: markersArray['Lavender Station (EWL)']},
-		{name: "Aljunied Station (EWL)", marker: markersArray['Aljunied Station (EWL)']},
-		{name: "Paya Lebar Station (EWL)", marker: markersArray['Paya Lebar Station (EWL)']},
-		{name: "Eunos Station (EWL)", marker: markersArray['Eunos Station (EWL)']},
-		{name: "Kembangan Station (EWL)", marker: markersArray['Kembangan Station (EWL)']},
-		{name: "Bedok Station (EWL)", marker: markersArray['Bedok Station (EWL)']},
-		{name: "Tanah Merah Station (EWL)", marker: markersArray['Tanah Merah Station (EWL)']},
-		{name: "Expo Station (EWL)", marker: markersArray['Expo Station (EWL)']},
-		{name: "Simei Station (EWL)", marker: markersArray['Simei Station (EWL)']},
-		{name: "Tampines Station (EWL)", marker: markersArray['Tampines Station (EWL)']},
-		{name: "Pasir Ris Station (EWL)", marker: markersArray['Pasir Ris Station (EWL)']},
-		{name: "Changi Airport Station (EWL)", marker: markersArray['Changi Airport Station (EWL)']}
+		{name: "Tiong Bahru MRT Station", marker: markersArray['Tiong Bahru MRT Station']},
+		{name: "Redhill MRT Station", marker: markersArray['Redhill MRT Station']},
+		{name: "Queenstown MRT Station", marker: markersArray['Queenstown MRT Station']},
+		{name: "Outram Park MRT Station", marker: markersArray['Outram Park MRT Station']},
+		{name: "Tanjong Pagar MRT Station", marker: markersArray['Tanjong Pagar MRT Station']},
+		{name: "Commonwealth MRT Station", marker: markersArray['Commonwealth MRT Station']},
+		{name: "Buona Vista MRT Station", marker: markersArray['Buona Vista MRT Station']},
+		{name: "Dover MRT Station", marker: markersArray['Dover MRT Station']},
+		{name: "Clementi MRT Station", marker: markersArray['Clementi MRT Station']},
+		{name: "Jurong East MRT Station", marker: markersArray['Jurong East MRT Station']},
+		{name: "Chinese Garden MRT Station", marker: markersArray['Chinese Garden MRT Station']},
+		{name: "Lakeside MRT Station", marker: markersArray['Lakeside MRT Station']},
+		{name: "Boon Lay MRT Station", marker: markersArray['Boon Lay MRT Station']},
+		{name: "Pioneer MRT Station", marker: markersArray['Pioneer MRT Station']},
+		{name: "Joo Koon MRT Station", marker: markersArray['Joo Koon MRT Station']},
+		{name: "Raffles Place MRT Station", marker: markersArray['Raffles Place MRT Station']},
+		{name: "City Hall MRT Station", marker: markersArray['City Hall MRT Station']},
+		{name: "Bugis MRT Station", marker: markersArray['Bugis MRT Station']},
+		{name: "Lavender MRT Station", marker: markersArray['Lavender MRT Station']},
+		{name: "Aljunied MRT Station", marker: markersArray['Aljunied MRT Station']},
+		{name: "Paya Lebar MRT Station", marker: markersArray['Paya Lebar MRT Station']},
+		{name: "Eunos MRT Station", marker: markersArray['Eunos MRT Station']},
+		{name: "Kembangan MRT Station", marker: markersArray['Kembangan MRT Station']},
+		{name: "Bedok MRT Station", marker: markersArray['Bedok MRT Station']},
+		{name: "Tanah Merah MRT Station", marker: markersArray['Tanah Merah MRT Station']},
+		{name: "Expo MRT Station", marker: markersArray['Expo MRT Station']},
+		{name: "Simei MRT Station", marker: markersArray['Simei MRT Station']},
+		{name: "Tampines MRT Station", marker: markersArray['Tampines MRT Station']},
+		{name: "Pasir Ris MRT Station", marker: markersArray['Pasir Ris MRT Station']},
+		{name: "Changi Airport MRT Station", marker: markersArray['Changi Airport MRT Station']}
 ];
 // Knockout Model (Station List)
 /**
@@ -54,7 +54,7 @@ var neighbourhoodMapViewModel = function() {
 
 	this.currentLocation = ko.observable(this.locationList()[0]);
 	this.showMarkerInfo = function(name) {
-		var trigger = name.name()
+		var trigger = name.name();
 		google.maps.event.trigger(markersArray[trigger], 'click');
 	};
 	// Filter Function (includes Marker functions that are handled via Knockout's computed observable)
