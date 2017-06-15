@@ -89,10 +89,15 @@ li:hover {
 
 @media (max-width: 767px) {
 	.col-sm-2 {
-		height: 50%;
+		height: 60%;
 	}
 
 	.list-group {
 		max-height: 200px;
 	}
+}
+
+#attributions {
+	font-size:8px;
+	color: white;
 }
