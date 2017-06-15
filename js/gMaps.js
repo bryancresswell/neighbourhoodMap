@@ -99,8 +99,8 @@ var STYLES_ARRAY =[
 		"featureType":"transit",
 		"elementType":"geometry",
 		"stylers":[
-			{"color":"#000000"}
-			,{"lightness":19}
+			{"color":"#000000"},
+			{"lightness":19}
 		]
 	},
 	{
@@ -181,7 +181,7 @@ function initMap() {
 				currentMarker = marker;
 				marker.setAnimation(google.maps.Animation.BOUNCE);
 				map.setCenter(marker.getPosition());
-				var contentString = "<div id = 'main'><div id = 'location-name'><h1 id='header'>" + name + "</h1></div><div id = 'wiki-link'></div></div>"
+				var contentString = "<div id = 'main'><div id = 'location-name'><h1 id='header'>" + name + "</h1></div><div id = 'wiki-link'></div></div>";
 				// Wikipedia AJAX 
 				var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' +  name + '&format=json&callback=wikiCallback';
 				// Wikipedia AJAX Error Handling
@@ -206,24 +206,24 @@ function initMap() {
 				// Renders the content when set up
 				infoWindow.setContent(contentString);
 				infoWindow.open(map,marker);
-			}
+			};
 		})(marker,name));
 		// Adds a listener to stop the marker from bouncing when closed.
 		google.maps.event.addListener(infoWindow, "closeclick", (function(marker) {
 			return function() {
 				marker.setAnimation(null);
-			}
+			};
 		})(marker));
 		markersArray[name] = marker;
 	}
-};
+}
 /**
 * @description Toggles the bounce animation for the markers
 */
 function toggleBounce() {
-	if (marker.getAnimation() != null) {
+	if (marker.getAnimation() !== null) {
 		marker.setAnimation(null);
 	} else {
 		marker.setAnimation(google.maps.Animation.BOUNCE);
 	}
-};
+}
