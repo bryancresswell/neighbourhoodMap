@@ -1,5 +1,5 @@
 // Knockout
-var stationList = [
+var STATION_LIST = [
 		{name: "Tiong Bahru MRT Station", marker: markersArray['Tiong Bahru MRT Station']},
 		{name: "Redhill MRT Station", marker: markersArray['Redhill MRT Station']},
 		{name: "Queenstown MRT Station", marker: markersArray['Queenstown MRT Station']},
@@ -35,8 +35,7 @@ var stationList = [
 /**
 * @description Creates the Stations object
 * @constructor
-* @param {string} title - The title of the book
-* @param {string} author - The author of the book
+* @param {Object} data - Data contains two properties per entry, name and marker
 */
 var Stations = function(data) {
 	this.name = ko.observable(data.name);
@@ -48,17 +47,20 @@ var neighbourhoodMapViewModel = function() {
 	var self = this;
 	this.locationList = ko.observableArray([]);
 	this.holdingList = ko.observableArray([]);
-	stationList.forEach(function(stationItem) {
+	STATION_LIST.forEach(function(stationItem) {
 		self.locationList.push(new Stations(stationItem));
 	});
-
-	this.currentLocation = ko.observable(this.locationList()[0]);
+	/**
+	* @description Shows marker info for a particular list element
+	* @param {Object} name 
+	*/
 	this.showMarkerInfo = function(name) {
 		var trigger = name.name();
 		google.maps.event.trigger(markersArray[trigger], 'click');
 	};
 	// Filter Function (includes Marker functions that are handled via Knockout's computed observable)
 	this.filter = ko.observable("");
+	// Computed observable from Knockout which filters out arrays and markers from the input
 	this.filterSearch = ko.computed(function() {
 		var filter = self.filter().toLowerCase();
 		if (!filter) {
@@ -79,8 +81,12 @@ var neighbourhoodMapViewModel = function() {
 		}
 	});
 }
-
-// Helper function to replace ko.utils.stringStartsWith
+/**
+* @description Helper function to replace ko.utils.stringStartsWith
+* @param {string} string
+* @param {string} startsWith
+* @returns {boolean} Boolean indicating if the string found matches the input
+*/
 var stringStartsWith = function (string, startsWith) {
 	string = string || "";
 	if (startsWith.length > string.length) {

@@ -2,15 +2,26 @@
 	height: 100%;
 }
 
+#map-column {
+}
+
 html, body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
 }
 
+body {
+	background-color: #2B2B2B !important;
+}
+
 .container-fluid {
-	width: 100%;
-	background-color: #363636;
+	height:100%;
+	background-color: #2B2B2B;
+}
+
+.row, .col-sm-2, .col-sm-10 {
+	height: 100%;
 }
 
 .main-view {
@@ -21,7 +32,7 @@ html, body {
 	width: 100%;
 }
 
-.col-md-10 {
+.col-sm-10 {
 	padding: 0 !important;
 }
 
@@ -74,4 +85,14 @@ li:hover {
 
 #wiki-link {
 	font-size: 12px;
+}
+
+@media (max-width: 767px) {
+	.col-sm-2 {
+		height: 50%;
+	}
+
+	.list-group {
+		max-height: 200px;
+	}
 }
