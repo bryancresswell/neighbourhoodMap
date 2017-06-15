@@ -64,12 +64,15 @@ var neighbourhoodMapViewModel = function() {
 	this.filterSearch = ko.computed(function() {
 		var filter = self.filter().toLowerCase();
 		if (!filter) {
+			ginfo.close()
 			for (var i = 0; i < self.locationList().length; i ++) {
 				self.locationList()[i].marker().setVisible(true);
+				self.locationList()[i].marker().setAnimation(null);
 			}
 			return self.locationList();
 		} else {
 			return ko.utils.arrayFilter(self.locationList(), function(item) {
+				ginfo.close();
 				var result = stringStartsWith(item.name().toLowerCase(), filter);
 				if (result) {
 					item.marker().setVisible(true);
