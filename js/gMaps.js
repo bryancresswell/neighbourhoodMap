@@ -1,6 +1,5 @@
 var map;
 var marker;
-var ginfo;
 var markersArray = {};
 var CURRENT_LOCATION = {lat: 1.28631490, lng: 103.827403};
 // Dark Mode style for Google Maps API
