@@ -1,6 +1,8 @@
 var map;
 var marker;
 var markersArray = {};
+var finalContent;
+var markerLoaded = false;
 var CURRENT_LOCATION = {lat: 1.28631490, lng: 103.827403};
 // Dark Mode style for Google Maps API
 var STYLES_ARRAY =[
@@ -174,11 +176,12 @@ function initMap() {
 			animation: google.maps.Animation.DROP
 		});
 		var name = MARKERS[i].name;
+		vm.locationList()[i].marker = marker;
 		markersArray[name] = marker;
 		markerListener(marker, name);
 		infoWindowListener(marker);
 	}
-
+	markerLoaded = true;
 	/**
 	* @description Adds a listener to each marker
 	* @params {Object} marker - The marker object to be passed through
@@ -189,10 +192,6 @@ function initMap() {
 		var contentString = "<div id = 'main'><div id = 'location-name'><h1 id='header'>" + name + "</h1></div><div id = 'wiki-link'></div></div>";
 		// Wikipedia AJAX 
 		var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + name + '&format=json&callback=wikiCallback';
-		// Wikipedia AJAX Error Handling
-		var wikiRequestTimeout = setTimeout(function() {
-			$("#wiki-link").text("Couldn't load the resources from Wikipedia!");
-		}, 8000);
 		
 		// Renders the content when set up
 		marker.addListener('click', function() {
@@ -204,21 +203,21 @@ function initMap() {
 			map.setCenter(marker.getPosition());
 			$.ajax({
 				url: wikiUrl,
-				dataType: "jsonp",
-				success: function (response) {
-					var articleList = response[1];
-					var articleStr = articleList[0];
-					var url = 'http://en.wikipedia.org/wiki/' + articleStr;
-					// To prevent clicking too fast from breaking the page
-					if (!($("#wiki-link").has("a").length)) {
-						$("#wiki-link").append("<a target = '_blank' href='" + url + "'>" + articleStr + "</a>");
-					}
-					// Time out if unable to load
-					clearTimeout(wikiRequestTimeout);
-				}
+				dataType: "jsonp"
+			}).done(function (response) {
+				var articleList = response[1];
+				var articleStr = articleList[0];
+				var url = "http://en.wikipedia.org/wiki/" + articleStr;
+				var addon = "<a target='_blank' href='" + url + "'>" + articleStr + "</a></div></div>";
+				finalContent = contentString.concat(addon);
+				infoWindow.open(map, marker);
+				infoWindow.setContent(finalContent);
+			}).fail(function (jqXHR, textStatus) {
+				var addon = "<p>Can't connect to Wikipedia!</p></div></div>";
+				finalContent = contentString.concat(addon);
+				infoWindow.open(map, marker);
+				infoWindow.setContent(finalContent);
 			});
-			infoWindow.setContent(contentString);
-			infoWindow.open(map,this);
 		});
 	}
 	/**
