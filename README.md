@@ -8,7 +8,7 @@ Clone this repository by typing `git clone https://github.com/bryancresswell/nei
 
 ## Launching the website
 
-Once you have cloned the repository, navigate to the folder, and open the `main.html` file.
+Once you have cloned the repository, navigate to the folder, and open the `index.html` file.
 
 ## APIs used
 
